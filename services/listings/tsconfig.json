@@ -33,5 +33,6 @@
     ]
   },
   "exclude": [ "tests", 
-  "client"]
+  "client",
+  "src/_disabled"]
 }

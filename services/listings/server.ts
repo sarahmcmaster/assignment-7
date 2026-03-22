@@ -35,7 +35,7 @@ export default async function (port?: number, randomizeDbs?: boolean): Promise<{
   app.use(cors())
 
   const router = zodRouter({ zodRouter: { exposeRequestErrors: true } })
-
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   setupBookRoutes(router, state.books)
 
   app.use(bodyParser())

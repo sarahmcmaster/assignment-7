@@ -16,12 +16,12 @@ export async function seedWarehouseDatabase (accessor: WarehouseDatabaseAccessor
       const shelves = books[book]
 
       return Object.keys(shelves).map(async (shelf) => {
-        return await accessor.books.insertOne({ book, shelf, count: shelves[shelf] })
+        return accessor.books.insertOne({ book, shelf, count: shelves[shelf] })
       })
     }),
     ...Object.keys(orders).map(async (order) => {
       const _id = ObjectId.createFromHexString(order)
-      return await accessor.orders.insertOne({ _id, books: orders[order] })
+      return accessor.orders.insertOne({ _id, books: orders[order] })
     })
   ])
 }
