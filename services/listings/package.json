@@ -9,7 +9,8 @@
     "fix-lint": "./generate-openapi.sh && eslint --no-eslintrc -c .eslintrc.js --fix src/**/*.ts *.ts",
     "check-types": "./generate-openapi.sh && tsc --noEmit",
     "test": "vitest",
-    "test:ci": "vitest run"
+    "test:ci": "vitest run",
+    "merge-swagger": "node merge-swagger.js"
   },
   "keywords": [],
   "author": "",

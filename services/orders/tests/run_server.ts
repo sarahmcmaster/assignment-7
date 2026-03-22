@@ -1,7 +1,7 @@
 import { afterEach, beforeEach } from 'vitest'
 import server from '../server'
 import { type AppBookDatabaseState } from '../src/database_access'
-import { type AppWarehouseDatabaseState } from '../src/warehouse/warehouse_database'
+import { type AppWarehouseDatabaseState } from '../src/_disabled/warehouse_database'
 
 export interface ServerTestContext {
   address: string
