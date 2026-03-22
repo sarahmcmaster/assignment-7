@@ -13,7 +13,9 @@ jobs:
               with:
                 node-version: '20'           
             - run: npm install
+              working-directory: services/listings
             - run: npm run lint
+              working-directory: services/listings
     
     check_types:
         runs-on: ubuntu-latest
@@ -23,7 +25,9 @@ jobs:
               with:
                 node-version: '20'           
             - run: npm install
+              working-directory: services/listings
             - run: npm run check-types
+              working-directory: services/listings
 
     test:
         runs-on: ubuntu-latest
@@ -33,7 +37,9 @@ jobs:
               with:
                 node-version: '20'           
             - run: npm install
+              working-directory: services/listings
             - run: npm run test:ci
+              working-directory: services/listings
 
     generate-client:
         runs-on: ubuntu-latest
@@ -43,8 +49,10 @@ jobs:
               with:
                 node-version: '20'           
             - run: npm install
+              working-directory: services/listings
             - run: ./generate-openapi.sh
+              working-directory: services/listings
             - uses: actions/upload-artifact@v4
               with:
                 name: client-sdk
-                path: client/
+                path: services/listings/client/
