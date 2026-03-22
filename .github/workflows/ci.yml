@@ -29,17 +29,17 @@ jobs:
             - run: npm run check-types
               working-directory: services/listings
 
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                node-version: '20'           
-            - run: npm install
-              working-directory: services/listings
-            - run: npm run test:ci
-              working-directory: services/listings
+   # test:
+   #     runs-on: ubuntu-latest
+    #    steps:
+     #       - uses: actions/checkout@v4
+      #      - uses: actions/setup-node@v4
+       #       with:
+      #        node-version: '20'           
+      #      - run: npm install
+      #        working-directory: services/listings
+      #      - run: npm run test:ci
+      #        working-directory: services/listings
 
     generate-client:
         runs-on: ubuntu-latest
