@@ -14,7 +14,6 @@ export class WarehouseRoutes extends Controller {
      * Find the shelves that have copies of the book, and how
      * many copies each shelf has
      * @param book The book's unique identifier!
-     * @returns {BookInfo}
      */
   @Get('{book}')
   public async getBookInfo (
@@ -73,7 +72,6 @@ export class OrderRoutes extends Controller {
   /**
      * Place an order
      * @param order An array of the ordered book id's
-     * @returns {OrderId}
      */
   @Post()
   @SuccessResponse(201, 'created')
@@ -94,7 +92,7 @@ export class OrderRoutes extends Controller {
 
   /**
    * Get all the pending orders
-   * @returns {Order[]}
+   *
    */
   @Get()
   public async listOrders (
