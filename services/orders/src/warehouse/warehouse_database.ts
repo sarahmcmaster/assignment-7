@@ -135,11 +135,14 @@ if (import.meta.vitest !== undefined) {
     const [memOrderId, dbOrderId] = await Promise.all([memData.placeOrder({ book: 2 }), dbData.placeOrder({ book: 2 })])
     const [memOrder, dbOrder] = await Promise.all([memData.getOrder(memOrderId), dbData.getOrder(dbOrderId)])
 
-    expect(memOrder).toMatchObject(dbOrder)
     expect(dbOrder).toBeTruthy()
-    if (dbOrder !== false) {
-      expect(dbOrder.book).toEqual(2)
+
+    if (dbOrder === false) {
+      throw new Error('dbOrder should not be false')
     }
+
+    expect(memOrder).toMatchObject(dbOrder)
+    expect(dbOrder.book).toEqual(2)
 
     const [memOrderId2, dbOrderId2] = await Promise.all([memData.placeOrder({ book: 1 }), dbData.placeOrder({ book: 1 })])
     const [memList, dbList] = await Promise.all([memData.listOrders(), dbData.listOrders()])

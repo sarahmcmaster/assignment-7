@@ -1,12 +1,9 @@
-import { BodyProp, Controller, Get, Path, Post, Put, Route, SuccessResponse, Request } from 'tsoa'
-import { getBookInfo } from './get_book_info'
-import { type ShelfId, type BookID, type OrderId, type FulfilledBooks, type OrderPlacement, type Order } from '../documented_types'
-import { placeBooksOnShelf } from '../_disabled/place_on_shelf'
-import { fulfilOrder } from './fulfil_order'
+import { BodyProp, Controller, Get, Post, Route, SuccessResponse, Request } from 'tsoa'
+import { type OrderId, type OrderPlacement, type Order } from '../documented_types'
 import { placeOrder } from './place_order'
 import { listOrders } from './list_orders'
 import { type ParameterizedContext, type DefaultContext, type Request as KoaRequest } from 'koa'
-import { type AppWarehouseDatabaseState } from '../_disabled/warehouse_database'
+import { type AppWarehouseDatabaseState } from '../warehouse/warehouse_database'
 
 @Route('order')
 export class OrderRoutes extends Controller {

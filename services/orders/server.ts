@@ -34,8 +34,6 @@ export default async function (port?: number, randomizeDbs?: boolean): Promise<{
   app.use(cors())
 
   const router = zodRouter({ zodRouter: { exposeRequestErrors: true } })
-
-
   app.use(bodyParser())
   app.use(router.routes())
 

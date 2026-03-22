@@ -32,5 +32,9 @@
       "vitest/importMeta"
     ]
   },
-  "exclude": ["client"]
+  "exclude": [
+  "tests",
+  "client",
+  "src/_disabled"
+]
 }
