@@ -1,6 +1,12 @@
 version: "4.0"
 
 services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
   dev:
     image: mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm
     volumes:

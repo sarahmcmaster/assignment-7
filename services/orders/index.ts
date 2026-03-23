@@ -1,3 +1,13 @@
 import server from './server'
+import { subscribeToEvent } from './src/events/rabbitmq'
 
-server(3001).then(() => { console.log('Exiting Application') }).catch((err) => { console.error(err) })
+async function main (): Promise<void> {
+  await subscribeToEvent('book-added', async (payload) => {
+    console.log('orders received book-added', payload)
+  })
+
+  await server(3001)
+  console.log('Exiting Application')
+}
+
+void main().catch((err) => { console.error(err) })
