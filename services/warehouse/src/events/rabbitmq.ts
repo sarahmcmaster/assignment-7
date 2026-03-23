@@ -21,7 +21,7 @@ export async function publishEvent (queue: string, payload: unknown): Promise<vo
 
 export async function subscribeToEvent (
   queue: string,
-  handler: (payload: any) => Promise<void> | void
+  handler: (payload: unknown) => Promise<void> | void
 ): Promise<void> {
   const ch = await getChannel()
   await ch.assertQueue(queue, { durable: false })

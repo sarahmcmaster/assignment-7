@@ -2,8 +2,8 @@ import server from './server'
 import { subscribeToEvent } from './src/events/rabbitmq'
 
 async function main (): Promise<void> {
-  await subscribeToEvent('book-added', async (payload) => {
-    console.log('orders received book-added', payload)
+  await subscribeToEvent('book-added-warehouse', async (payload) => {
+    console.log('warehouse received book-added', payload)
   })
 
   await server(3002)

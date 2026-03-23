@@ -1,0 +1,10 @@
+HTTP/1.1 400 Bad Request
+Access-Control-Allow-Origin: *
+vary: Origin
+Content-Type: text/plain; charset=utf-8
+Content-Length: 259
+Date: Mon, 23 Mar 2026 02:46:40 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"fields":{"book.name":{"message":"'name' is required"},"book.author":{"message":"'author' is required"},"book.description":{"message":"'description' is required"},"book.price":{"message":"'price' is required"},"book.image":{"message":"'image' is required"}}}

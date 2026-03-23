@@ -22,11 +22,18 @@ export default async function createOrUpdateBook (book: Book, books: BookDatabas
     )
 
     if (result.modifiedCount === 1) {
-      void publishEvent('book-added', {
+      void publishEvent('book-added-orders', {
         id,
         title: body.name,
         author: body.author
       })
+
+      void publishEvent('book-added-warehouse', {
+        id,
+        title: body.name,
+        author: body.author
+      })
+
       return id
     } else {
       return false
@@ -42,7 +49,13 @@ export default async function createOrUpdateBook (book: Book, books: BookDatabas
 
     const newId = result.insertedId.toHexString()
 
-    void publishEvent('book-added', {
+    void publishEvent('book-added-orders', {
+      id: newId,
+      title: body.name,
+      author: body.author
+    })
+    console.log('publishing book-added-warehouse')
+    void publishEvent('book-added-warehouse', {
       id: newId,
       title: body.name,
       author: body.author
