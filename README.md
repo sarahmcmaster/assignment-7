@@ -14,3 +14,9 @@ Example:
 - orders and warehouse subscribe to this event and update their local state
 
 This reduces direct coupling between services and improves scalability.
+
+Each service exposes its own Swagger documentation:
+
+- listings: http://localhost:3000/docs
+- orders: http://localhost:3001/docs
+- warehouse: http://localhost:3002/docs
